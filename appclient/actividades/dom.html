@@ -34,6 +34,31 @@
         <script>
             console.info('Esta funcionando');
 
+            var persona = 'ander';
+
+            //if ( persona == undefined ){
+            if ( !persona ){
+                alert('Persona no valor es UNDEFINED');
+            }else{
+                console.debug(persona);
+            }
+
+            // comprar javaScript tiene dos comparadores
+            // ==  compador simple
+            // === compador estricto
+
+            if ( 2 == "2" ){
+                console.debug(' 2 == "2"  es true');
+            }
+
+
+            if ( 2 === "2" ){
+                console.debug(' 2 === "2"  es true');
+            }else{
+                console.debug(' 2 === "2"  es false');
+            }
+            
+
             const PI = 3.14;
             console.debug('PI = ' + PI);
 
