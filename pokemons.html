@@ -13,13 +13,14 @@
     <h1>Ejemplo Ajax</h1>
     <p>Documentacion <a href="https://www.w3schools.com/xml/ajax_intro.asp" target="_blank">W3School</a></p>
     <p>Vamos aprender a realizar una llamada Ajax con Vanilla JavaScript</p>
-    <p>Vamos a consumir un servcio Rest y pintar los datos en HTML <a href="https://randomuser.me/" target="_blank">API Personas</a></p>
+    <p>Vamos a consumir un servcio Rest y pintar los datos en HTML <a href="'https://pokeapi.co/api/v2/pokemon'" target="_blank">API Pokemon</a></p>
 
     <h2>Listado Pokemons</h2>
-    <ol id="listado">
-        <li>Cargando...</li>
+    <div class="form-group">
+    <ol id="listado" >
+        <li class="form-control">Cargando...</li>
     </ol>
-    
+    </div>
 
     <script>
         window.addEventListener('load', init() );
@@ -76,7 +77,7 @@
         
     </script>
 <script>
-    //Nose realmente porque no funciona, a la hora de pulsar el boton no hace nada (NI IDEA)
+    //Nose realmente porque no funciona,igual ni se hace asi, a la hora de pulsar el boton no hace nada (NI IDEA)
 <ol id="list">
         <li>Cargando...</li>
     </ol>
@@ -84,7 +85,6 @@
     
             function pokemon(){
                 console.debug('Document Load and Ready');
-    
                 const url = 'https://pokeapi.co/api/v2/pokemon/ditto';
                 //creamos un objeto para realizar la REQUEST con ajax
                 var xhttp = new XMLHttpRequest();
