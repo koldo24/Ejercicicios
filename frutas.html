@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const frutas =[
+    {
+"nombre": "fresa",
+"precio":4.56,
+"oferta":true,
+"descuento": 50,
+"color": ["rojo"]
+},
+{
+"nombre": "manzana",
+"precio":1.99,
+"oferta":true,
+"descuento": 50,
+"color": ["rojo", "verde", "amarillo"]
+},
+{
+"nombre": "kiwi",
+"precio":3.00,
+"oferta":false,
+"descuento": 50,
+"color": ["verde", "amarillo"]
+}
+];
+
+var frutasNombres = frutas.map(function(frutas){
+return frutas.nombre;
+
+});
+
+var frutaOferta = frutas.filter(el=>(el.oferta)).map((el=>el.nombre));
+console.info('nomrbe'+ frutaOferta);
+
+var precioTotal=0;
+precioTotal = frutas.map(el=> el.precio).reduce( (previous, current) => {
+console.debug('previous'+previous);
+console.debug('current'+current);
+return previous.precio + current.precio;
+
+},precioTotal);
+console.debug(precioTotal);   
+    </script>
+</body>
+</html>

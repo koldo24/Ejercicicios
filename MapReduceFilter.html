@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+var persona=[
+
+{
+'nombre' :'Juan',
+'apellido': 'Castro',
+'edad': 27,     
+},
+{
+'nombre' : 'Pedro',
+'apellido': 'Perez',   
+'edad': 28
+}
+];
+
+console.debug(persona);
+
+//map
+var personaMap = persona.map(function(persona){
+    return persona.nombre
+    
+    });
+    console.debug(persona);
+
+//reduce
+var listado=0;
+var listadoEdad = persona.map(el=> el.edad).reduce( (previous, current) => {
+console.debug('previous'+previous);
+console.debug('current'+current);
+return previous.edad + current.edad;
+
+},listado);
+console.debug(listadoEdad);   
+
+//filter
+var nombreFiltrado = persona.filter(el=>{
+
+    return el.nombre = 'Juan';
+});
+console.debug('filtrado \o' , nombreFiltrado);
+    </script>
+</body>
+</html>
+
