@@ -27,8 +27,8 @@ public class PersonaController {
 	
 	
 	
-	public PersonaController() {
-		super();
+	static{
+	
 		personas.add( new Persona(1,"Arantxa","avatar1.png", "m") );
 		personas.add( new Persona(1,"Idoia","avatar2.png", "m") );
 		personas.add( new Persona(1,"Iker","avatar3.png", "h") );
