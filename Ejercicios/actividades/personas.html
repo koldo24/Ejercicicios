@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Ejemplo Pesonas</h1>
+    <p>Documentacion <a href="https://www.w3schools.com/xml/ajax_intro.asp" target="_blank">W3School</a></p>
+    <p>Vamos aprender a realizar una llamada Ajax con Vanilla JavaScript</p>
+    <p>Vamos a consumir un servcio Rest y pintar los datos en HTML <a href="https://randomuser.me/" target="_blank">API Personas</a></p>
+
+    <h2>Listado Personas</h2>
+   
+    <ol id="listado">
+        <li>Cargando...</li>
+    </ol>
+
+    <script>
+        window.addEventListener('load', init() );
+
+        function init(){
+            console.debug('Document Load and Ready');
+
+            const url = 'https://randomuser.me/api/?results=7';
+            //creamos un objeto para realizar la REQUEST con ajax
+            var xhttp = new XMLHttpRequest();
+
+            //CUIDADO este metodo funciona de forma asincrona
+            // deberemos meter nuestro codigo aqui dentro para trabajar con los datos en json
+            xhttp.onreadystatechange = function() {
+                // recibimos la RESPONSE
+                if (this.readyState == 4 && this.status == 200) {
+                    console.info('peticion GET ' + url);
+                    console.debug( this.responseText );
+
+                    // parsear texto a Json
+                    const jsonData = JSON.parse(this.responseText);    
+                    console.debug( jsonData );
+
+                    // array con personas
+                    const personas = jsonData.results;
+
+                    let lista = document.getElementById('listado');
+                    lista.innerHTML = '';
+
+                    for(let i=0; i < personas.length; i++ ){
+                        const persona = personas[i];
+                        console.debug( persona.name.first );
+                        
+                        lista.innerHTML += `
+                        <div class="container">
+                            <div class="row row-cols-2">
+                        <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                                            <li>
+                                                <img src="${persona.picture.large}" alt="avatar"></br>
+                                                <p>Nombre y Apellido: ${persona.name.first} ${persona.name.last}.</p>
+                                                <p>Usuario: ${persona.login.username}.</p>
+                                                <p>Edad: ${persona.dob.age}.</p>    
+                                                <p>Ciudad: ${persona.location.city}.</p>
+                                                <p>Estado: ${persona.location.state}.</p>
+                                                <p>Email: ${persona.email}.</p>
+                                                <p>Telf Fijo: ${persona.phone}.</p>
+                                                <p>Telf Móvil: ${persona.cell}.</p>
+                                            </li>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>`;
+
+                    }// for
+
+ 
+
+                }// his.readyState == 4 && this.status == 200
+
+            };// onreadystatechange
+
+            // preparamos la petición GET
+            xhttp.open("GET", url , true);
+            // enviar la peticion asincrona, meter el codigo en onreadystatechange
+            xhttp.send();
+
+
+
+
+        }        
+    </script>
+
+</body>
+</html>
