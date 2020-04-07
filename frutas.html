@@ -36,16 +36,19 @@ return frutas.nombre;
 });
 
 var frutaOferta = frutas.filter(el=>(el.oferta)).map((el=>el.nombre));
-console.info('nomrbe'+ frutaOferta);
+console.info('nombre'+ frutaOferta);
 
-var precioTotal=0;
-precioTotal = frutas.map(el=> el.precio).reduce( (previous, current) => {
-console.debug('previous'+previous);
-console.debug('current'+current);
-return previous.precio + current.precio;
 
-},precioTotal);
-console.debug(precioTotal);   
+console.info(frutas.map(el=>el.precio).reduce((previous, current)=> previous + current));
+
+console.info(frutas.map(el=>{
+if(el.oferta){return(el.precio - (el.precio * el.descuento/100));}else{
+return el.precio;
+}}).reduce((previous, current)=>previous + current));
+
+console.info(frutas.map(el=>el.color).reduce(function(previous, current){
+return previous.concat(current)}));
+
     </script>
 </body>
 </html>
