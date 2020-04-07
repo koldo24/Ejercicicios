@@ -27,12 +27,12 @@ public class PersonaController {
 	
 	
 	
-	public PersonaController() {
-		super();
-		personas.add( new Persona(1,"Arantxa","avatar1.png") );
-		personas.add( new Persona(1,"Idoia","avatar2.png") );
-		personas.add( new Persona(1,"Iker","avatar3.png") );
-		personas.add( new Persona(1,"Hodei","avatar4.png") );
+	static{
+	
+		personas.add( new Persona(1,"Arantxa","avatar1.png", "m") );
+		personas.add( new Persona(1,"Idoia","avatar2.png", "m") );
+		personas.add( new Persona(1,"Iker","avatar3.png", "h") );
+		personas.add( new Persona(1,"Hodei","avatar4.png","h") );
 	}
 
 
