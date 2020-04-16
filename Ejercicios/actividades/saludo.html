@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+   
+</head>
+<body>
+    <script>	
+function alerta() 
+{
+var mensaje;
+var opcion = prompt("dime nombre:");
+ 
+if (opcion == null || opcion == "") {
+        mensaje = "Has cancelado o introducido el nombre vacío";
+        } else {
+            mensaje = "Hola " + opcion;
+            }
+            document.getElementById("ejer").innerHTML = mensaje;
+}
+    </script>
+    <p id="ejer">ejercicio1</p>
+ 
+    <button onclick="alerta()">Mostrar</button>
+</body>
+</html>
