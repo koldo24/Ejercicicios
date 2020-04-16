@@ -1,0 +1,58 @@
+/* estilos propios */
+
+body{
+    box-sizing: content-box;
+}
+
+h1{ 
+    background-color: teal;
+    color: #FFF;
+    padding: 10px 5px;
+    font-size: 1.5em;
+}
+
+li{
+    border-bottom: 1px solid rgb(109, 102, 102);
+    margin-bottom: 0.3rem;
+    padding: 5px;
+}
+
+main.container{
+    max-width: 1024px;
+    margin: auto;;
+}
+
+.container-filter{
+    padding: 0.5rem;
+    border: 1px solid #DDD;
+}
+
+.row{
+    display: flex;
+}
+.col{
+    width: 50%;
+}
+
+.formulario{
+    box-sizing: content-box;
+    padding: 10px;
+    border:1px solid grey;
+    margin: 0 0 0 10px;
+}
+
+input[type="button"]{
+    background-color: rgb(22, 151, 236);
+    padding: 3px 5px;
+    border-radius: 10px;
+    color: #FFF;
+}
+
+#gallery img{
+    filter: grayscale(100%);
+}
+
+#gallery img.selected {
+    border:3px solid rgb(22, 151, 236);
+    filter: grayscale(0);
+}
